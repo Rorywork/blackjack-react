@@ -5,8 +5,8 @@ import GameBoard from "./GameBoard";
 class App extends React.Component {
   state = { cardsPlayer: [], cardsDealer: [], countPlayer: 0, countDealer: 0 };
 
-  getCards() {
-    const Url = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6";
+  drawCards() {
+    const Url = "https://deckofcardsapi.com/api/deck/new/draw/?count=2";
 
     Axios.get(Url)
       .then(data => console.log(data))
@@ -16,8 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>This is my Blackjack App</h1>
-        <button onClick={this.getCards}>API Request</button>
+        <button onClick={this.drawCards}>Draw Cards</button>
         <GameBoard />
       </div>
     );
