@@ -1,15 +1,13 @@
-import "./GameBoard.css";
+import "./Gameboard.css";
 import React from "react";
-import CardListPlayer from "./CardListPlayer";
-import CardListDealer from "./CardListDealer";
+import Card from "./Card.js";
 
-const GameBoard = () => {
-  return (
-    <div class="gameboard">
-      <CardListDealer />
-      <CardListPlayer />
-    </div>
-  );
+const Gameboard = ({ cards }) => {
+  const renderedList = cards.map(card => {
+    return <Card key={card.code} card={card} />;
+  });
+
+  return <div className="gameboard">{renderedList}</div>;
 };
 
-export default GameBoard;
+export default Gameboard;

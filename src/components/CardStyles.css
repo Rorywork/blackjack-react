@@ -1,0 +1,11 @@
+.card {
+  height: 80px;
+  margin-left: 10px;
+}
+
+.player-cards {
+  display: inline;
+  position: relative;
+  top: 70%;
+  left: 10%;
+}
