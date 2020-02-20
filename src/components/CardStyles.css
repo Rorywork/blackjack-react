@@ -1,15 +1,9 @@
 .card {
   height: 80px;
   margin: 5px;
+  display: inline;
 }
 
 .card:hover {
   cursor: pointer;
-}
-
-.player-cards {
-  display: inline;
-  position: relative;
-  top: 70%;
-  left: 10%;
 }

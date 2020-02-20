@@ -1,20 +1,3 @@
-.card-list {
-  position: absolute;
-  left: 30%;
-  border: 2px solid white;
-  height: 125px;
-  width: 300px;
-  text-align: center;
-}
-
-.player {
-  bottom: 10px;
-}
-
-.dealer {
-  top: 10px;
-}
-
 .gameboard {
   position: relative;
   height: 500px;
@@ -22,4 +5,20 @@
   border-radius: 20%;
   background-color: #204631;
   color: black;
+}
+
+.card-list {
+  display: inline-flex;
+}
+
+.player {
+  position: absolute;
+  bottom: 10px;
+  left: 15%;
+}
+
+.dealer {
+  position: absolute;
+  top: 10px;
+  left: 15%;
 }

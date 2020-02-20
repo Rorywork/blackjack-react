@@ -4,7 +4,7 @@ import React from "react";
 const Card = ({ card }) => {
   console.log(card);
   return (
-    <div className="player-cards">
+    <div>
       <img className="card" alt={card.id} src={card.image} />
     </div>
   );

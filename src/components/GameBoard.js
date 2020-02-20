@@ -9,64 +9,64 @@ const Gameboard = ({ cards, count, gameState }) => {
 
   if (count === 0) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 2)}</div>
+      <div className="gameboard">
+        <div className="card-list player">{renderedList.slice(0, 2)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 1) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 3)}</div>
+      <div className="gameboard">
+        <div className="card-list player">{renderedList.slice(0, 3)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 2) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 4)}</div>
+      <div className="gameboard">
+        <div className="card-list player">{renderedList.slice(0, 4)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 3) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 5)}</div>
+      <div className="gameboard">
+        <div className="card-list player">{renderedList.slice(0, 5)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 4) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 7)}</div>
+      <div className="gameboard">
+        <div className="card-list dealer">{renderedList.slice(0, 7)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 5) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 8)}</div>
+      <div className="gameboard">
+        <div className="card-list dealer">{renderedList.slice(0, 8)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 6) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 9)}</div>
+      <div className="gameboard">
+        <div className="card-list dealer">{renderedList.slice(0, 9)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );
   }
   if (count === 7) {
     return (
-      <div>
-        <div className="gameboard">{renderedList.slice(0, 10)}</div>
+      <div className="gameboard">
+        <div className="card-list dealer">{renderedList.slice(0, 10)}</div>
         <button onClick={() => gameState(count)}>Test RenderState</button>
       </div>
     );

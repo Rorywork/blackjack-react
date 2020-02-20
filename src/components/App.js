@@ -3,7 +3,7 @@ import Axios from "axios";
 import GameBoard from "./GameBoard";
 
 class App extends React.Component {
-  state = { cards: [], count: 0 };
+  state = { cards: [], playerCount: 0 };
 
   componentDidMount = async () => {
     const response = await Axios.get(
@@ -13,32 +13,32 @@ class App extends React.Component {
     this.setState({ cards: response.data.cards });
   };
 
-  renderGameState = count => {
+  renderGameState = playerCount => {
     console.log("renderGameState working");
 
-    if (count === 0) {
-      this.setState({ count: 1 });
+    if (playerCount === 0) {
+      this.setState({ playerCount: 1 });
     }
-    if (count === 1) {
-      this.setState({ count: 2 });
+    if (playerCount === 1) {
+      this.setState({ playerCount: 2 });
     }
-    if (count === 2) {
-      this.setState({ count: 3 });
+    if (playerCount === 2) {
+      this.setState({ playerCount: 3 });
     }
-    if (count === 3) {
-      this.setState({ count: 4 });
+    if (playerCount === 3) {
+      this.setState({ playerCount: 4 });
     }
-    if (count === 4) {
-      this.setState({ count: 5 });
+    if (playerCount === 4) {
+      this.setState({ playerCount: 5 });
     }
-    if (count === 5) {
-      this.setState({ count: 6 });
+    if (playerCount === 5) {
+      this.setState({ playerCount: 6 });
     }
-    if (count === 6) {
-      this.setState({ count: 7 });
+    if (playerCount === 6) {
+      this.setState({ playerCount: 7 });
     }
-    if (count === 7) {
-      this.setState({ count: 8 });
+    if (playerCount === 7) {
+      this.setState({ playerCount: 8 });
     } else {
       console.log("There is an error with the count!");
     }
