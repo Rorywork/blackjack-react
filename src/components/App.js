@@ -3,7 +3,7 @@ import Axios from "axios";
 import GameBoard from "./GameBoard";
 
 class App extends React.Component {
-  state = { cards: [], count: 0 };
+  state = { cards: [], count: 0, pScore: 0 };
 
   componentDidMount = async () => {
     const response = await Axios.get(
@@ -44,20 +44,26 @@ class App extends React.Component {
     }
   };
 
+  thePlayerScore = pScore => {
+    if (pScore < 21) {
+      console.log("You can take another card");
+    } else {
+      console.log("You have lost");
+    }
+  };
+
   render() {
     return (
       <div>
         Found: {this.state.cards.length} cards
-        <button onClick={e => this.setState({ count: 4 })}>Next Stage</button>
-        <h1> Phase {this.state.phase}</h1>
+        {/* <button onClick={e => this.setState({ count: 4 })}>Next Stage</button> */}
         <h1> Count {this.state.count}</h1>
-        <button>Twist</button>
-        <button>Stick</button>
         <GameBoard
           cards={this.state.cards}
-          gameState={this.renderGameState}
           count={this.state.count}
-          phase={this.state.phase}
+          pScore={this.state.pScore}
+          gameState={this.renderGameState}
+          playerScore={this.thePlayerScore}
         />
       </div>
     );

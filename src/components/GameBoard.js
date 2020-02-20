@@ -2,7 +2,7 @@ import "./Gameboard.css";
 import React from "react";
 import Card from "./Card.js";
 
-const Gameboard = ({ cards, count, gameState }) => {
+const Gameboard = ({ cards, count, gameState, playerScore, pScore }) => {
   const renderedList = cards.map(card => {
     return <Card key={card.code} card={card} />;
   });
@@ -12,7 +12,9 @@ const Gameboard = ({ cards, count, gameState }) => {
       <div className="gameboard">
         <div className="card-list player">{renderedList.slice(0, 2)}</div>
         <div className="card-list dealer">{renderedList.slice(5, 7)}</div>
-        <button onClick={() => gameState(count)}>Test RenderState</button>
+        <button onClick={(() => gameState(count), () => playerScore(pScore))}>
+          Twist
+        </button>
       </div>
     );
   }
@@ -21,7 +23,7 @@ const Gameboard = ({ cards, count, gameState }) => {
       <div className="gameboard">
         <div className="card-list player">{renderedList.slice(0, 3)}</div>
         <div className="card-list dealer">{renderedList.slice(5, 7)}</div>
-        <button onClick={() => gameState(count)}>Test RenderState</button>
+        <button onClick={() => gameState(count)}>Twist</button>
       </div>
     );
   }
@@ -30,7 +32,7 @@ const Gameboard = ({ cards, count, gameState }) => {
       <div className="gameboard">
         <div className="card-list player">{renderedList.slice(0, 4)}</div>
         <div className="card-list dealer">{renderedList.slice(5, 7)}</div>
-        <button onClick={() => gameState(count)}>Test RenderState</button>
+        <button onClick={() => gameState(count)}>Twist</button>
       </div>
     );
   }
@@ -39,7 +41,7 @@ const Gameboard = ({ cards, count, gameState }) => {
       <div className="gameboard">
         <div className="card-list player">{renderedList.slice(0, 5)}</div>
         <div className="card-list dealer">{renderedList.slice(5, 7)}</div>
-        <button onClick={() => gameState(count)}>Test RenderState</button>
+        <button onClick={() => gameState(count)}>Stick</button>
       </div>
     );
   }

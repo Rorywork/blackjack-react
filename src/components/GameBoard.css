@@ -9,16 +9,16 @@
 
 .card-list {
   display: inline-flex;
+  border-radius: 15%;
+  left: 20%;
 }
 
 .player {
   position: absolute;
   bottom: 10px;
-  left: 15%;
 }
 
 .dealer {
   position: absolute;
   top: 10px;
-  left: 15%;
 }
