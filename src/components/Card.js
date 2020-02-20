@@ -5,7 +5,7 @@ const Card = ({ card }) => {
   console.log(card);
   return (
     <div className="player-cards">
-      <img className="card" src={card.image} />
+      <img className="card" alt={card.id} src={card.image} />
     </div>
   );
 };
