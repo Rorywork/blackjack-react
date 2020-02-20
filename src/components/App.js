@@ -18,7 +18,6 @@ class App extends React.Component {
 
     if (count === 0) {
       console.log("Count is 0");
-      this.returnCards();
     } else {
       console.log("Count is not 0");
     }
