@@ -17,9 +17,30 @@ class App extends React.Component {
     console.log("renderGameState working");
 
     if (count === 0) {
-      console.log("Count is 0");
+      this.setState({ count: 1 });
+    }
+    if (count === 1) {
+      this.setState({ count: 2 });
+    }
+    if (count === 2) {
+      this.setState({ count: 3 });
+    }
+    if (count === 3) {
+      this.setState({ count: 4 });
+    }
+    if (count === 4) {
+      this.setState({ count: 5 });
+    }
+    if (count === 5) {
+      this.setState({ count: 6 });
+    }
+    if (count === 6) {
+      this.setState({ count: 7 });
+    }
+    if (count === 7) {
+      this.setState({ count: 8 });
     } else {
-      console.log("Count is not 0");
+      console.log("There is an error with the count!");
     }
   };
 
@@ -28,12 +49,15 @@ class App extends React.Component {
       <div>
         Found: {this.state.cards.length} cards
         <button onClick={e => this.setState({ count: 4 })}>Next Stage</button>
+        <h1> Phase {this.state.phase}</h1>
+        <h1> Count {this.state.count}</h1>
         <button>Twist</button>
         <button>Stick</button>
         <GameBoard
           cards={this.state.cards}
           gameState={this.renderGameState}
           count={this.state.count}
+          phase={this.state.phase}
         />
       </div>
     );
