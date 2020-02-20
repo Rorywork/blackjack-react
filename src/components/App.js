@@ -3,7 +3,7 @@ import Axios from "axios";
 import GameBoard from "./GameBoard";
 
 class App extends React.Component {
-  state = { cards: [], playerCount: 0, dealerCount: 0 };
+  state = { cards: [], count: 0 };
 
   componentDidMount = async () => {
     const response = await Axios.get(
@@ -13,29 +13,32 @@ class App extends React.Component {
     this.setState({ cards: response.data.cards });
   };
 
-  renderGameState = (playerCount, dealerCount) => {
+  renderGameState = count => {
     console.log("renderGameState working");
 
-    if (playerCount === 0) {
-      this.setState({ playerCount: 1, dealerCount: 1 });
+    if (count === 0) {
+      this.setState({ count: 1 });
     }
-    if (playerCount === 1) {
-      this.setState({ playerCount: 2 });
+    if (count === 1) {
+      this.setState({ count: 2 });
     }
-    if (playerCount === 2) {
-      this.setState({ playerCount: 3 });
+    if (count === 2) {
+      this.setState({ count: 3 });
     }
-    if (playerCount === 3) {
-      this.setState({ dealerCount: 2 });
+    if (count === 3) {
+      this.setState({ count: 4 });
     }
-    if (playerCount === 3 && dealerCount === 2) {
-      this.setState({ dealerCount: 3 });
+    if (count === 4) {
+      this.setState({ count: 5 });
     }
-    if (playerCount === 3 && dealerCount === 3) {
-      this.setState({ dealerCount: 4 });
+    if (count === 5) {
+      this.setState({ count: 6 });
     }
-    if (playerCount === 3 && dealerCount === 4) {
-      this.setState({ dealerCount: 5 });
+    if (count === 6) {
+      this.setState({ count: 7 });
+    }
+    if (count === 7) {
+      this.setState({ count: 8 });
     } else {
       console.log("There is an error with the count!");
     }
@@ -45,17 +48,16 @@ class App extends React.Component {
     return (
       <div>
         Found: {this.state.cards.length} cards
-        <button onClick={e => this.setState({ playerCount: 4 })}>
-          Next Stage
-        </button>
-        <h1> Count {this.state.playerCount}</h1>
+        <button onClick={e => this.setState({ count: 4 })}>Next Stage</button>
+        <h1> Phase {this.state.phase}</h1>
+        <h1> Count {this.state.count}</h1>
         <button>Twist</button>
         <button>Stick</button>
         <GameBoard
           cards={this.state.cards}
           gameState={this.renderGameState}
-          playerCount={this.state.playerCount}
-          dealerCount={this.state.dealerCount}
+          count={this.state.count}
+          phase={this.state.phase}
         />
       </div>
     );
