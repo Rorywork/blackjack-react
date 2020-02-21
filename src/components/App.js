@@ -12,33 +12,20 @@ class App extends React.Component {
     console.log(response);
     this.setState({ cards: response.data.cards });
     // this.setState({ cardValue: this.state.cards[0].value });
-    this.setState({
-      pScore: this.state.cards[0].value + this.state.cards[1].value
-    });
+    // this.setState({
+    //   pScore: this.state.cards[0].value + this.state.cards[1].value
+    // });
   };
 
-  renderGameState = (count, pScore) => {
+  renderGameState = count => {
     console.log("renderGameState working");
 
     if (count === 0) {
-      this.setState({ count: 1, pScore: this.state.cards[0].value });
-      console.log(count);
-      console.log(pScore);
+      this.setState({ count: 1 });
     } else if (count === 1) {
-      this.setState({
-        count: 2,
-        pScore: this.state.cards[0].value + this.state.cards[1].value
-      });
-      console.log(pScore);
+      this.setState({ count: 2 });
     } else if (count === 2) {
-      this.setState({
-        count: 3,
-        pScore:
-          this.state.cards[0].value +
-          this.state.cards[1].value +
-          this.state.cards[1].value
-      });
-      console.log(pScore);
+      this.setState({ count: 3 });
     } else if (count === 3) {
       this.setState({ count: 4 });
     } else if (count === 4) {
@@ -59,18 +46,31 @@ class App extends React.Component {
 
     if (value === "ACE") {
       console.log("Ace - The value of this is either 11 or 1");
+      this.addToPlayerScore(11);
     } else if (value < 10) {
       console.log(" 2-10 The value of this is its own value");
+      this.addToPlayerScore(Number(value));
     } else {
       console.log("10-K - The value of this is 10");
+      this.addToPlayerScore(10);
     }
   };
+
+  // addToPlayerScoreArray(cardExValue) {
+  //   console.log(cardExValue);
+
+  // }
+
+  addToPlayerScore(cardExValue) {
+    // this.setState({ pScore: cardExValue });
+    console.log(this.state.pScore);
+    this.setState({ pScore: cardExValue });
+  }
 
   render() {
     return (
       <div>
         Found: {this.state.cards.length} cards
-        {/* <button onClick={e => this.setState({ count: 4 })}>Next Stage</button> */}
         <h1> Count {this.state.count}</h1>
         <GameBoard
           cards={this.state.cards}
@@ -80,7 +80,6 @@ class App extends React.Component {
           setCardValue={this.setCardValue}
           paint={this.paintByNumbers}
           gameState={this.renderGameState}
-          // playerScore={this.thePlayerScore}
         />
         <h1>Player Score: {this.state.pScore}</h1>
         <h1>Dealer score: </h1>
