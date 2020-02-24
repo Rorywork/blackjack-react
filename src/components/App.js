@@ -3,7 +3,7 @@ import Axios from "axios";
 import GameBoard from "./GameBoard";
 
 class App extends React.Component {
-  state = { cards: [], count: 0, pScore: 0, cardValue: null };
+  state = { cards: [], count: 0, cardValue: null };
 
   componentDidMount = async () => {
     const response = await Axios.get(
@@ -41,31 +41,31 @@ class App extends React.Component {
     }
   };
 
-  paintByNumbers = value => {
-    console.log("paintByNumbers function working");
+  // paintByNumbers = value => {
+  //   console.log("paintByNumbers function working");
 
-    if (value === "ACE") {
-      console.log("Ace - The value of this is either 11 or 1");
-      this.addToPlayerScore(11);
-    } else if (value < 10) {
-      console.log(" 2-10 The value of this is its own value");
-      this.addToPlayerScore(Number(value));
-    } else {
-      console.log("10-K - The value of this is 10");
-      this.addToPlayerScore(10);
-    }
-  };
+  //   if (value === "ACE") {
+  //     console.log("Ace - The value of this is either 11 or 1");
+  //     this.addToPlayerScore(11);
+  //   } else if (value < 10) {
+  //     console.log(" 2-10 The value of this is its own value");
+  //     this.addToPlayerScore(Number(value));
+  //   } else {
+  //     console.log("10-K - The value of this is 10");
+  //     this.addToPlayerScore(10);
+  //   }
+  // };
 
-  // addToPlayerScoreArray(cardExValue) {
-  //   console.log(cardExValue);
+  // // addToPlayerScoreArray(cardExValue) {
+  // //   console.log(cardExValue);
 
-  // }
+  // // }
 
-  addToPlayerScore(cardExValue) {
-    // this.setState({ pScore: cardExValue });
-    console.log(this.state.pScore);
-    this.setState({ pScore: cardExValue });
-  }
+  // addToPlayerScore = cardExValue => {
+  //   this.setState({ pScore: cardExValue });
+  //   console.log(this.state.pScore);
+  //   return;
+  // };
 
   render() {
     return (
@@ -76,10 +76,11 @@ class App extends React.Component {
           cards={this.state.cards}
           count={this.state.count}
           pScore={this.state.pScore}
-          cardValue={this.state.cardValue}
+          // cardValue={this.state.cardValue}
           setCardValue={this.setCardValue}
-          paint={this.paintByNumbers}
+          // paint={this.paintByNumbers}
           gameState={this.renderGameState}
+          // addPScore={this.addToPlayerScore}
         />
         <h1>Player Score: {this.state.pScore}</h1>
         <h1>Dealer score: </h1>

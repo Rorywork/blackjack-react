@@ -2,9 +2,11 @@ import "./Gameboard.css";
 import React from "react";
 import Card from "./Card.js";
 
-const Gameboard = ({ cards, count, gameState, pScore, paint }) => {
+const Gameboard = ({ cards, count, gameState, pScore, addPScore }) => {
   const renderedList = cards.map(card => {
-    return <Card key={card.code} card={card} paint={paint} />;
+    return (
+      <Card key={card.code} card={card} pScore={pScore} addPScore={addPScore} />
+    );
   });
 
   if (count === 0) {
@@ -13,7 +15,6 @@ const Gameboard = ({ cards, count, gameState, pScore, paint }) => {
         <div className="card-list player">{renderedList.slice(0, 2)}</div>
         <div className="card-list dealer">{renderedList.slice(5, 7)}</div>
         <button onClick={() => gameState(count, pScore)}>Twist</button>
-        <button onClick={() => paint()}>Paint</button>
         {/* <button onClick={() => playerScore(pScore)}>Score</button> */}
       </div>
     );
